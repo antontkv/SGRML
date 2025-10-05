@@ -1,0 +1,76 @@
+[project]
+name = "SGRML"
+version = "1.0.0"
+description = "Select Graphic Rendition Markup Language"
+authors = [
+    {name = "Anton Tuchkov", email = "to.tuchkov@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.pdm]
+distribution = true
+
+[dependency-groups]
+dev = [
+    "ruff>=0.13.3",
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+]
+
+
+########
+# Ruff #
+########
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["A", "B", "C4", "D", "E", "F", "I", "N", "Q", "PERF", "RET", "RUF", "SIM", "YTT"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D213", "E402", "SIM105", "RUF003", "RUF002"]
+unfixable = ["F401", "F841"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["SIM117"]
+"__init__.py" = ["F401", "F403"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+
+########
+# Mypy #
+########
+
+[tool.mypy]
+python_version = "3.10"
+
+check_untyped_defs = true
+explicit_package_bases = true
+
+warn_redundant_casts = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
