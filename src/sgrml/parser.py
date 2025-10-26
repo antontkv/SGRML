@@ -76,6 +76,11 @@ class SGRSequences:
         return SGRTag("b", wrap_sgr(1))
 
     @classmethod
+    def dim(cls) -> SGRTag:
+        """Dim."""
+        return SGRTag("dim", wrap_sgr(2))
+
+    @classmethod
     def i(cls) -> SGRTag:
         """Italic."""
         return SGRTag("i", wrap_sgr(3))

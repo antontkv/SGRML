@@ -13,6 +13,10 @@ def test_bold() -> None:
     assert SGR("<b>bold</b>") == f"{w(1)}bold{dr()}"
 
 
+def test_dim() -> None:
+    assert SGR("<dim>dim</dim>") == f"{w(2)}dim{dr()}"
+
+
 def test_italic() -> None:
     assert SGR("<i>italic</i>") == f"{w(3)}italic{dr()}"
 
