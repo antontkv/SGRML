@@ -58,3 +58,19 @@ def test_error_on_wrong_tag() -> None:
 def test_error_on_wrong_attr() -> None:
     with pytest.raises(ValueError):
         str(SGR("<u unsupported=none>underline</u>"))
+
+
+def test_blink() -> None:
+    assert SGR("<blink>rapid blink</blink>") == f"{w(5)}rapid blink{dr()}"
+
+
+@pytest.mark.parametrize(
+    "blink_type,sgr_sequence",
+    [
+        pytest.param("slow", 5, id="slow"),
+        pytest.param("rapid", 6, id="rapid"),
+        pytest.param("fast", 6, id="fast"),
+    ],
+)
+def test_blink_types(blink_type: str, sgr_sequence: str) -> None:
+    assert SGR(f"<blink type={blink_type}>blink</blink>") == f"{w(sgr_sequence)}blink{dr()}"

@@ -102,6 +102,14 @@ class SGRSequences:
             raise ValueError(f"Unknown underline type '{type}'")
         return SGRTag("u", wrap_sgr(f"4:{underline_types[type]}"))
 
+    @classmethod
+    def blink(cls, type: str = "slow") -> SGRTag:  # noqa: A002
+        """Blink."""
+        blink_types = {"slow": 5, "rapid": 6, "fast": 6}
+        if type not in blink_types:
+            raise ValueError(f"Unknown blink type '{type}'")
+        return SGRTag("blink", wrap_sgr(blink_types[type]))
+
 
 class Parser(HTMLParser):
     def __init__(self) -> None:

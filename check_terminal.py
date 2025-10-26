@@ -17,6 +17,11 @@ print(SGR("<u type=wavy>Wavy Underline.</u>"))
 print(SGR("<u type=dotted>Dotted Underline.</u>"))
 print(SGR("<u type=dashed>Dashed Underline.</u>"))
 
+# Blink
+print("")
+print(SGR("<blink type=slow>Slow Blink</blink>"))
+print(SGR("<blink type=rapid>Rapid Blink</blink>"))
+
 # Mix
 print("")
 print(
