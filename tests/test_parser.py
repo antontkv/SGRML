@@ -78,3 +78,7 @@ def test_blink_types(blink_type: str, sgr_sequence: str) -> None:
 
 def test_inverse() -> None:
     assert SGR("<inverse>inverse</inverse>") == f"{w(7)}inverse{dr()}"
+
+
+def test_invisible() -> None:
+    assert SGR("<hidden>hidden</hidden>") == f"{w(8)}hidden{dr()}"

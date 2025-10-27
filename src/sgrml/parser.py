@@ -115,6 +115,11 @@ class SGRSequences:
         """Inverse."""
         return SGRTag("inverse", wrap_sgr(7))
 
+    @classmethod
+    def hidden(cls) -> SGRTag:
+        """Hidden. Invisible."""
+        return SGRTag("hidden", wrap_sgr(8))
+
 
 class Parser(HTMLParser):
     def __init__(self) -> None:
