@@ -74,3 +74,7 @@ def test_blink() -> None:
 )
 def test_blink_types(blink_type: str, sgr_sequence: str) -> None:
     assert SGR(f"<blink type={blink_type}>blink</blink>") == f"{w(sgr_sequence)}blink{dr()}"
+
+
+def test_inverse() -> None:
+    assert SGR("<inverse>inverse</inverse>") == f"{w(7)}inverse{dr()}"

@@ -110,6 +110,11 @@ class SGRSequences:
             raise ValueError(f"Unknown blink type '{type}'")
         return SGRTag("blink", wrap_sgr(blink_types[type]))
 
+    @classmethod
+    def inverse(cls) -> SGRTag:
+        """Inverse."""
+        return SGRTag("inverse", wrap_sgr(7))
+
 
 class Parser(HTMLParser):
     def __init__(self) -> None:
