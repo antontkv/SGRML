@@ -82,3 +82,7 @@ def test_inverse() -> None:
 
 def test_invisible() -> None:
     assert SGR("<hidden>hidden</hidden>") == f"{w(8)}hidden{dr()}"
+
+
+def test_strikethrough() -> None:
+    assert SGR("<s>strikethrough</s>") == f"{w(9)}strikethrough{dr()}"
