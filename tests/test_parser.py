@@ -86,3 +86,28 @@ def test_invisible() -> None:
 
 def test_strikethrough() -> None:
     assert SGR("<s>strikethrough</s>") == f"{w(9)}strikethrough{dr()}"
+
+
+def test_foreground_color_errors() -> None:
+    with pytest.raises(ValueError):
+        str(SGR("<fg>text</fg>"))
+
+    with pytest.raises(ValueError):
+        str(SGR("<fg color=notcolor>text</fg>"))
+
+
+@pytest.mark.parametrize(
+    "color,sgr_sequence",
+    [
+        pytest.param("black", 30, id="black"),
+        pytest.param("red", 31, id="red"),
+        pytest.param("green", 32, id="green"),
+        pytest.param("yellow", 33, id="yellow"),
+        pytest.param("blue", 34, id="blue"),
+        pytest.param("magenta", 35, id="magenta"),
+        pytest.param("cyan", 36, id="cyan"),
+        pytest.param("white", 37, id="white"),
+    ],
+)
+def test_foreground_color(color: str, sgr_sequence: int) -> None:
+    assert SGR(f"<fg color={color}>text</fg>") == f"{w(sgr_sequence)}text{dr()}"

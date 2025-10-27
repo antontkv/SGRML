@@ -25,8 +25,21 @@ print(SGR("<blink type=rapid>Rapid Blink</blink>"))
 print(SGR("<inverse>Inverse: Swap foreground and background colors</inverse>"))
 print(SGR("<hidden>Hidden</hidden> <- Hidden text there"))
 
+# Foreground Color
+print("")
+print(SGR("<fg color=black>Black text</fg>"))
+print(SGR("<fg color=red>Red text</fg>"))
+print(SGR("<fg color=green>Green text</fg>"))
+print(SGR("<fg color=yellow>Yellow text</fg>"))
+print(SGR("<fg color=blue>Blue text</fg>"))
+print(SGR("<fg color=magenta>Magenta text</fg>"))
+print(SGR("<fg color=cyan>Cyan text</fg>"))
+print(SGR("<fg color=white>White text</fg>"))
+
+
 # Mix
 print("")
+print(SGR("<fg color=yellow>Yellow text <fg color=blue>Blue text</fg> More Yellow Text</fg>"))
 print(
     SGR(
         "<u type=wavy><b>Wavy Underline and Bold. <i><u type=solid>Solid Underline, Bold and Italic. </i></u>"

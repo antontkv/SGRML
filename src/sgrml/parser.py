@@ -125,6 +125,24 @@ class SGRSequences:
         """Strikethrough."""
         return SGRTag("s", wrap_sgr(9))
 
+    @classmethod
+    def fg(cls, color: str = "") -> SGRTag:
+        if not color:
+            raise ValueError("Foreground Color was not specified")
+        ansi_colors = {
+            "black": 30,
+            "red": 31,
+            "green": 32,
+            "yellow": 33,
+            "blue": 34,
+            "magenta": 35,
+            "cyan": 36,
+            "white": 37,
+        }
+        if color not in ansi_colors:
+            raise ValueError(f"Color value '{color}' is not valid. Valid colors are {', '.join(ansi_colors.keys())}")
+        return SGRTag("fg", wrap_sgr(ansi_colors[color]))
+
 
 class Parser(HTMLParser):
     def __init__(self) -> None:
